@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrew Tran | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  </head>
+  <body class="page">
+    <header class="site-header">
+      <div class="scroll-progress" aria-hidden="true"></div>
+      <nav class="site-header__nav" aria-label="Primary navigation">
+        <div class="site-header__inner">
+          <a href="#home" class="site-header__brand">
+            <span class="site-header__brand-mark">AT</span>
+            <span class="site-header__brand-text">Andrew&nbsp;Tran</span>
+          </a>
+          <div class="site-header__right">
+            <ul class="site-header__list">
+              <li class="site-header__item site-header__item--active">
+                <a class="site-header__link" href="#home">Home</a>
+              </li>
+              <li class="site-header__item">
+                <a class="site-header__link" href="#projects">Projects</a>
+              </li>
+              <li class="site-header__item">
+                <a class="site-header__link" href="#skills">Skills</a>
+              </li>
+              <li class="site-header__item">
+                <a class="site-header__link" href="#contact">Contact</a>
+              </li>
+            </ul>
+            <button class="theme-toggle" type="button" aria-label="Toggle light / dark mode">
+              <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page__main">
+      <section class="hero section-animated" id="home" aria-labelledby="hero-title">
+
+        <div class="hero__layout">
+          <div class="hero__content">
+            <header class="hero__header">
+              <h1
+                class="hero__title"
+                id="hero-title"
+                data-text="Hi, I'm Andrew"
+              ></h1>
+              <p class="hero__role">Web Developer / Software Developer</p>
+            </header>
+            <div class="hero__summary">
+              <p>Information Technology graduate with 2+ years of Web development experience in React and Next.js.</p>
+            </div>
+            <dl class="hero__meta">
+              <div class="hero__meta-item">
+                <dt class="hero__meta-label">
+                  <i class="fa-solid fa-location-dot"></i> Location
+                </dt>
+                <dd class="hero__meta-value">Abbotsford, 3067</dd>
+              </div>
+              <div class="hero__meta-item">
+                <dt class="hero__meta-label">
+                  <i class="fa-solid fa-briefcase"></i> Looking for
+                </dt>
+                <dd class="hero__meta-value">Web / Software Developer roles</dd>
+              </div>
+            </dl>
+            <div class="hero__actions">
+              <a href="#projects" class="button button--primary">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>View projects</span>
+              </a>
+              <a
+                href="assets/pdf/NguyenQuocAnTran_Resume.pdf"
+                class="button button--outline"
+                download="NguyenQuocAnTran_Resume.pdf"
+              >
+                <i class="fa-solid fa-download"></i>
+                <span>View CV (PDF)</span>
+              </a>
+            </div>
+            <hr class="hero__divider" />
+            <div class="social">
+              <p class="social__label">Follow me</p>
+              <ul class="social__list">
+                <li class="social__item">
+                  <a
+                    class="social__link"
+                    href="https://github.com/Quocan1410"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a
+                    class="social__link"
+                    href="https://www.linkedin.com/in/nguyen-quoc-an-tran/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <figure class="hero__image-wrapper">
+            <img
+              class="hero__image"
+              src="assets/img/avatar.png"
+              alt="Portrait of Andrew Tran"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="projects section-animated" id="projects" aria-labelledby="projects-title">
+        <p class="section-label">PROJECTS</p>
+        <header class="projects__header">
+          <h2 class="projects__title" id="projects-title">Featured work</h2>
+          <hr class="projects__divider" />
+          <div class="projects__intro">
+            <p>
+              A selection of projects showcasing experience in web development, software development, real‑time
+              features and modern web architectures.
+            </p>
+          </div>
+        </header>
+        <div class="projects__grid">
+          <article class="project-card" data-project="teaching-team">
+            <div class="project-card__star" aria-hidden="true">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="project-card__title">Teaching Team Platform</h3>
+            <p class="project-card__description">
+              Education platform to manage teaching team applications, ranking and selection with real‑time
+              updates.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">GraphQL</span>
+              <span class="tag">WebSocket</span>
+            </div>
+            <div class="project-card__actions">
+              <a
+                class="button button--ghost"
+                href="https://github.com/Quocan1410/TeachTeamApp"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="neonsquare">
+            <div class="project-card__star" aria-hidden="true">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="project-card__title">NeonSquare</h3>
+            <p class="project-card__description">
+              Social media platform with posts, reactions, notifications and real‑time chat across a Java
+              backend and Next.js web app.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">WebSocket</span>
+            </div>
+            <div class="project-card__actions">
+              <a
+                class="button button--ghost"
+                href="https://github.com/Quocan1410/NeonSquare"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="bookstore">
+            <div class="project-card__star" aria-hidden="true">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="project-card__title">BookStore System</h3>
+            <p class="project-card__description">
+              Desktop bookstore management app with shopping cart, SQL integration, authentication and order
+              workflows.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">Java</span>
+              <span class="tag">JavaFX</span>
+              <span class="tag">SQL</span>
+            </div>
+            <div class="project-card__actions">
+              <a
+                class="button button--ghost"
+                href="https://github.com/Quocan1410/BookStoreSystem"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="grocery-mart">
+            <div class="project-card__star" aria-hidden="true">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="project-card__title">Grocery Mart</h3>
+            <p class="project-card__description">
+              Responsive e‑commerce web app with product catalog, filters and reusable UI components.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">SCSS</span>
+            </div>
+            <div class="project-card__actions">
+              <a
+                class="button button--ghost"
+                href="https://github.com/Quocan1410/f8-project-08"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="skills section-animated" id="skills" aria-labelledby="skills-title">
+        <div class="skills__inner">
+          <div class="skills__title-wrap">
+            <h2 class="skills__title" id="skills-title">
+              <span class="skills__title-letter" data-index="0">S</span>
+              <span class="skills__title-letter" data-index="1">k</span>
+              <span class="skills__title-letter" data-index="2">i</span>
+              <span class="skills__title-letter" data-index="3">l</span>
+              <span class="skills__title-letter" data-index="4">l</span>
+              <span class="skills__title-letter" data-index="5">s</span>
+            </h2>
+          </div>
+          <div class="skills__grid">
+            <!-- Row 1: Web -->
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">React</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/react/react-original.svg" alt="React" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Next.js</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/nextjs/nextjs-original.svg" alt="Next.js" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">TypeScript</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/typescript/typescript-plain.svg" alt="TypeScript" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">JavaScript</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/javascript/javascript-plain.svg" alt="JavaScript" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">HTML</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/html5/html5-plain.svg" alt="HTML5" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">CSS</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/css3/css3-plain.svg" alt="CSS3" class="skills__icon" /></span>
+              </div>
+            </div>
+            <!-- Row 2: Backend -->
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Node.js</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/nodejs/nodejs-plain.svg" alt="Node.js" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Express</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/express/express-original.svg" alt="Express" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">GraphQL</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/graphql/graphql-plain.svg" alt="GraphQL" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Java</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/java/java-plain.svg" alt="Java" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Spring Boot</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/spring/spring-original.svg" alt="Spring Boot" class="skills__icon" /></span>
+              </div>
+            </div>
+            <!-- Row 3: Database & real-time -->
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">PostgreSQL</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/postgresql/postgresql-plain.svg" alt="PostgreSQL" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">SQL</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/mysql/mysql-plain.svg" alt="SQL" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Jest</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/jest/jest-plain.svg" alt="Jest" class="skills__icon" /></span>
+              </div>
+            </div>
+            <!-- Row 4: DevOps & Tools -->
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Docker</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/docker/docker-plain.svg" alt="Docker" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">AWS</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">Git</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/git/git-plain.svg" alt="Git" class="skills__icon" /></span>
+              </div>
+            </div>
+            <div class="skills__tile">
+              <div class="skills__tile-inner">
+                <span class="skills__tile-front">SCSS</span>
+                <span class="skills__tile-back"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/icons/sass/sass-original.svg" alt="SCSS" class="skills__icon" /></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-animated" id="contact" aria-labelledby="contact-title">
+        <p class="section-label">Contact</p>
+        <div class="contact__card">
+          <div class="contact__header">
+            <h2 class="contact__title" id="contact-title">Get in touch</h2>
+            <p class="contact__subtitle">Let's connect — open to new opportunities and collaborations.</p>
+          </div>
+          <div class="contact__grid">
+            <a href="mailto:trannguyenquocan1410@gmail.com" class="contact-item contact-item--box">
+              <span class="contact-item__icon"><i class="fa-solid fa-envelope"></i></span>
+              <div class="contact-item__content">
+                <span class="contact-item__label-text">Email</span>
+                <span class="contact-item__text">trannguyenquocan1410@gmail.com</span>
+              </div>
+            </a>
+            <div class="contact-item contact-item--plain contact-item--box">
+              <span class="contact-item__icon"><i class="fa-solid fa-location-dot"></i></span>
+              <div class="contact-item__content">
+                <span class="contact-item__label-text">Location</span>
+                <span class="contact-item__text">Abbotsford, 3067 · Melbourne</span>
+              </div>
+            </div>
+            <a href="tel:0433371055" class="contact-item contact-item--box">
+              <span class="contact-item__icon"><i class="fa-solid fa-phone"></i></span>
+              <div class="contact-item__content">
+                <span class="contact-item__label-text">Phone</span>
+                <span class="contact-item__text">0433 371 055</span>
+              </div>
+            </a>
+            <button type="button" class="contact-item contact-item--box contact-item--card" id="visit-card-trigger" aria-label="Xem danh thiếp">
+              <span class="contact-item__icon contact-item__icon--logo">
+                <span class="contact-item__logo-text">AT</span>
+              </span>
+              <div class="contact-item__content">
+                <span class="contact-item__label-text">Business card</span>
+                <span class="contact-item__text contact-item__text--hint">
+                  <span class="contact-item__hint-default">View my card</span>
+                  <span class="contact-item__hint-hover"><i class="fa-solid fa-arrow-right"></i> Open</span>
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <h2 class="site-footer__logo">Andrew</h2>
+        <ul class="site-footer__links">
+          <li class="site-footer__links-item"><a href="#home">Home</a></li>
+          <li class="site-footer__links-item"><a href="#projects">Projects</a></li>
+          <li class="site-footer__links-item"><a href="#skills">Skills</a></li>
+          <li class="site-footer__links-item"><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="site-footer__social">
+          <a
+            class="site-footer__social-link"
+            href="https://github.com/Quocan1410"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            class="site-footer__social-link"
+            href="https://www.linkedin.com/in/nguyen-quoc-an-tran/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+        <p class="site-footer__copy">
+          &copy; 2025 Andrew Tran. All rights reserved.
+        </p>
+        </div>
+    </footer>
+
+    <!-- Visit Card Modal -->
+    <div class="modal visit-card-modal" id="visit-card-modal" role="dialog" aria-labelledby="visit-card-title" aria-hidden="true">
+      <div class="modal__overlay visit-card-modal__overlay"></div>
+      <div class="visit-card-modal__wrapper">
+        <p class="visit-card-modal__hint" id="visit-card-hint">Click card to flip · Press Esc to close</p>
+        <div class="visit-card-scene">
+          <div class="visit-card" id="visit-card-3d" role="button" tabindex="0" aria-label="Danh thiếp Andrew Tran" aria-labelledby="visit-card-title">
+            <div class="visit-card__header">
+              <span class="visit-card__logo">AT</span>
+              <span class="visit-card__label">Developer</span>
+            </div>
+            <div class="visit-card__body">
+              <h2 class="visit-card__name" id="visit-card-title">Andrew Tran</h2>
+              <p class="visit-card__role">Web Developer / Software Developer</p>
+            </div>
+            <div class="visit-card__contact">
+              <p><i class="fa-solid fa-envelope"></i> trannguyenquocan1410@gmail.com</p>
+              <p><i class="fa-solid fa-phone"></i> 0433 371 055</p>
+              <p><i class="fa-solid fa-location-dot"></i> Abbotsford, 3067 · Melbourne</p>
+            </div>
+            <div class="visit-card__social">
+              <a href="https://github.com/Quocan1410" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/nguyen-quoc-an-tran/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal__overlay"></div>
+      <div class="modal__container">
+        <button class="modal__close" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="modal__title" id="modal-title"></h2>
+          <div class="modal__meta">
+            <span class="modal__period"></span>
+            <span class="modal__role"></span>
+          </div>
+          <div class="modal__description"></div>
+          <div class="modal__highlights">
+            <h3 class="modal__highlights-title">Key achievements</h3>
+            <ul class="modal__highlights-list"></ul>
+          </div>
+          <div class="modal__tags"></div>
+          <div class="modal__actions">
+            <a class="button button--primary modal__link" href="#" target="_blank" rel="noreferrer">
+              <i class="fab fa-github"></i>
+              <span>View on GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/skills-flip.js"></script>
+    <script src="assets/js/skills-tiles.js"></script>
+    <script src="assets/js/visit-card.js"></script>
+  </body>
+</html>
+
