@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -20,14 +20,22 @@
     />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   </head>
-  <body class="page">
-    <header class="site-header">
+  <body class="page terminal theme-dark">
+    <div class="terminal-window">
+      <div class="terminal-chrome">
+        <div class="terminal-titlebar">
+          <span class="terminal-dots">
+            <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+          </span>
+          <span class="terminal-title">andrew@portfolio ~</span>
+        </div>
+        <header class="site-header">
       <div class="scroll-progress" aria-hidden="true"></div>
       <nav class="site-header__nav" aria-label="Primary navigation">
         <div class="site-header__inner">
           <a href="#home" class="site-header__brand">
-            <span class="site-header__brand-mark">AT</span>
-            <span class="site-header__brand-text">Andrew&nbsp;Tran</span>
+            <span class="site-header__brand-mark">></span>
+            <span class="site-header__brand-text">andrew</span>
           </a>
           <div class="site-header__right">
             <ul class="site-header__list">
@@ -51,10 +59,11 @@
         </div>
       </nav>
     </header>
+      </div><!-- .terminal-chrome -->
 
     <main class="page__main">
-      <section class="hero section-animated" id="home" aria-labelledby="hero-title">
-
+      <section class="hero section-animated terminal-pane" id="home" aria-labelledby="hero-title">
+        <p class="section-label"><span class="terminal-prompt">$</span> whoami</p>
         <div class="hero__layout">
           <div class="hero__content">
             <header class="hero__header">
@@ -135,8 +144,8 @@
         </div>
       </section>
 
-      <section class="projects section-animated" id="projects" aria-labelledby="projects-title">
-        <p class="section-label">PROJECTS</p>
+      <section class="projects section-animated terminal-pane" id="projects" aria-labelledby="projects-title">
+        <p class="section-label"><span class="terminal-prompt">$</span> projects</p>
         <header class="projects__header">
           <h2 class="projects__title" id="projects-title">Featured work</h2>
           <hr class="projects__divider" />
@@ -259,8 +268,9 @@
         </div>
       </section>
 
-      <section class="skills section-animated" id="skills" aria-labelledby="skills-title">
+      <section class="skills section-animated terminal-pane" id="skills" aria-labelledby="skills-title">
         <div class="skills__inner">
+        <p class="section-label skills__section-label"><span class="terminal-prompt">$</span> skills</p>
           <div class="skills__title-wrap">
             <h2 class="skills__title" id="skills-title">
               <span class="skills__title-letter" data-index="0">S</span>
@@ -388,8 +398,8 @@
         </div>
       </section>
 
-      <section class="contact section-animated" id="contact" aria-labelledby="contact-title">
-        <p class="section-label">Contact</p>
+      <section class="contact section-animated terminal-pane" id="contact" aria-labelledby="contact-title">
+        <p class="section-label"><span class="terminal-prompt">$</span> contact</p>
         <div class="contact__card">
           <div class="contact__header">
             <h2 class="contact__title" id="contact-title">Get in touch</h2>
@@ -468,6 +478,7 @@
         </p>
         </div>
     </footer>
+    </div><!-- .terminal-window -->
 
     <!-- Visit Card Modal -->
     <div class="modal visit-card-modal" id="visit-card-modal" role="dialog" aria-labelledby="visit-card-title" aria-hidden="true">

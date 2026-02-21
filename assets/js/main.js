@@ -1,10 +1,10 @@
 // Hero staged entrance + looping typewriter title + theme initialization
 window.addEventListener("load", () => {
   const savedTheme = window.localStorage.getItem("theme");
-  const prefersDark =
-    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+  /* Mặc định dark mode; chỉ dùng light khi user đã chọn */
+  if (savedTheme === "light") {
+    document.body.classList.remove("theme-dark");
+  } else {
     document.body.classList.add("theme-dark");
   }
 
@@ -49,6 +49,7 @@ window.addEventListener("load", () => {
     titleEl.textContent = "\u00A0".repeat(fullText.length);
     type();
   }
+
 });
 
 // Reveal sections on scroll
@@ -78,6 +79,7 @@ navLinks.forEach((link) => {
 
     if (target) {
       event.preventDefault();
+      updateTerminalTitle(targetId);
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
@@ -86,12 +88,27 @@ navLinks.forEach((link) => {
 // Highlight active nav item based on scroll position
 const sections = document.querySelectorAll("section[id]");
 const navItems = document.querySelectorAll(".site-header__item");
+const terminalTitleEl = document.querySelector(".terminal-title");
+
+const terminalPaths = {
+  home: "~",
+  projects: "~/projects",
+  skills: "~/skills",
+  contact: "~/contact",
+};
+
+const updateTerminalTitle = (id) => {
+  if (!terminalTitleEl) return;
+  const path = terminalPaths[id] || "~";
+  terminalTitleEl.textContent = `andrew@portfolio ${path}`;
+};
 
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
+        updateTerminalTitle(id);
         navItems.forEach((item) => {
           const link = item.querySelector(".site-header__link");
           if (!link) return;
@@ -112,6 +129,13 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
+
+if (window.location.hash) {
+  const initialId = window.location.hash.slice(1);
+  updateTerminalTitle(initialId);
+} else {
+  updateTerminalTitle("home");
+}
 
 // Scroll progress bar
 const progressBar = document.querySelector(".scroll-progress");

@@ -25,6 +25,16 @@
     card.classList.remove("is-flat");
   }
 
+  let isAnimating = false;
+  function toggleFlatCard() {
+    if (isAnimating) return;
+    isAnimating = true;
+    card.classList.toggle("is-flat");
+    window.setTimeout(() => {
+      isAnimating = false;
+    }, 400);
+  }
+
   trigger.addEventListener("click", openVisitCard);
   closeBtn?.addEventListener("click", closeVisitCard);
   overlay?.addEventListener("click", closeVisitCard);
@@ -38,13 +48,13 @@
   card.addEventListener("click", (e) => {
     e.stopPropagation();
     if (e.target.closest("a")) return;
-    card.classList.toggle("is-flat");
+    toggleFlatCard();
   });
 
   card.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      card.classList.toggle("is-flat");
+      toggleFlatCard();
     }
   });
 })();

@@ -37,8 +37,627 @@ body.page.theme-dark {
   color: #ffffff;
 }
 
+/* ========== Terminal theme (Apple Terminal style) ========== */
+body.terminal {
+  --term-bg: #f5f7fb;
+  --term-bg-alt: #ffffff;
+  --term-border: #d8dee8;
+  --term-text: #111827;
+  --term-text-dim: #4b5563;
+  --term-accent: #16a34a;
+  --term-accent-alt: #0284c7;
+  --term-shadow: 0 6px 20px rgba(15, 23, 42, 0.14);
+  --terminal-sticky-top: 8px;
+  --terminal-chrome-h: 0px;
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  background-color: var(--term-bg);
+  color: var(--term-text);
+}
+
+body.terminal.theme-dark {
+  --term-bg: #0a0a0a;
+  --term-bg-alt: #121212;
+  --term-border: #2d2d2d;
+  --term-text: #e0e0e0;
+  --term-text-dim: #8b8b8b;
+  --term-accent: #47ff6f;
+  --term-accent-alt: #00d4ff;
+  --term-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.terminal.theme-dark .button--primary {
+  background: var(--term-accent);
+  border-color: var(--term-accent);
+  color: #061108;
+  box-shadow: 0 10px 24px rgba(18, 65, 31, 0.35);
+}
+
+body.terminal.theme-dark .button--primary:hover {
+  background: #6aff8b;
+  border-color: #6aff8b;
+  color: #061108;
+}
+
+body.terminal.theme-dark .button--outline {
+  border-color: var(--term-border);
+  color: var(--term-text);
+}
+
+body.terminal.theme-dark .button--outline:hover {
+  background: var(--term-bg-alt);
+  border-color: var(--term-accent);
+  color: var(--term-accent);
+}
+
+body.terminal.theme-dark .button--ghost {
+  border-color: var(--term-border);
+  color: var(--term-text);
+}
+
+body.terminal.theme-dark .button--ghost:hover {
+  background: var(--term-bg-alt);
+  border-color: var(--term-accent);
+  color: var(--term-accent);
+}
+
+body.terminal .terminal-window {
+  max-width: 1320px;
+  margin: 16px auto;
+  min-height: calc(100vh - 32px);
+  background: var(--term-bg);
+  border: 1px solid var(--term-border);
+  border-radius: 12px;
+  /* overflow: clip thay vì hidden — giữ border-radius, không chặn position: sticky */
+  overflow: clip;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  body.terminal .terminal-window {
+    margin: 8px auto;
+    min-height: calc(100vh - 16px);
+    border-radius: 8px;
+  }
+}
+
+body.terminal .terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: var(--term-bg-alt);
+  border-bottom: 1px solid var(--term-border);
+}
+
+body.terminal .terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+body.terminal .terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+body.terminal .terminal-dot:nth-child(1) {
+  background-color: #ff5f57;
+}
+
+body.terminal .terminal-dot:nth-child(2) {
+  background-color: #febc2e;
+}
+
+body.terminal .terminal-dot:nth-child(3) {
+  background-color: #28c840;
+}
+
+body.terminal .terminal-title {
+  font-size: 13px;
+  color: var(--term-text-dim);
+  margin-left: 8px;
+}
+
+body.terminal .terminal-title::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  margin-left: 2px;
+  background: var(--term-accent);
+  animation: term-blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes term-blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+body.terminal .terminal-chrome {
+  position: sticky;
+  top: var(--terminal-sticky-top);
+  z-index: 1100;
+  overflow: hidden;
+  background-color: var(--term-bg);
+  border-bottom: 1px solid var(--term-border);
+  box-shadow: var(--term-shadow);
+}
+
+/* Che vùng gap phía trên sticky header (không đổi layout) */
+body.terminal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--terminal-sticky-top);
+  background-color: var(--term-bg);
+  z-index: 1098;
+  pointer-events: none;
+}
+
+body.terminal .terminal-pane {
+  padding-left: 32px;
+  padding-right: 32px;
+  border-left: 3px solid transparent;
+  margin-left: 0;
+}
+
+body.terminal .terminal-prompt {
+  color: var(--term-accent) !important;
+  margin-right: 8px;
+}
+
+body.terminal .section-label {
+  color: var(--term-text-dim);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+
+/* Terminal: Chrome (titlebar + header) – dính trên cùng khi cuộn */
+body.terminal .terminal-chrome .site-header {
+  position: static !important;
+  background-color: var(--term-bg);
+  border-bottom: none;
+  padding: 8px 0;
+}
+
+body.terminal .site-header {
+  background: transparent;
+  border-bottom-color: var(--term-border);
+}
+
+body.terminal .site-header__brand-mark {
+  background: var(--term-bg-alt);
+  border-color: var(--term-accent);
+  color: var(--term-accent);
+  box-shadow: none;
+}
+
+body.terminal .site-header__brand-text {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--term-text);
+}
+
+body.terminal .site-header__link {
+  color: var(--term-text-dim);
+}
+
+body.terminal .site-header__item--active .site-header__link,
+body.terminal .site-header__item:hover .site-header__link {
+  color: var(--term-accent);
+}
+
+body.terminal .site-header__link::after {
+  background-color: var(--term-accent);
+}
+
+body.terminal .theme-toggle {
+  background: var(--term-bg-alt);
+  border-color: var(--term-border);
+  color: var(--term-text-dim);
+}
+
+body.terminal .theme-toggle:hover {
+  color: var(--term-accent);
+}
+
+body.terminal .scroll-progress::before {
+  background-color: var(--term-accent);
+}
+
+/* Terminal: Hero */
+body.terminal .hero__title,
+body.terminal .hero__role {
+  color: var(--term-text);
+}
+
+body.terminal .hero__summary,
+body.terminal .hero__meta-label,
+body.terminal .hero__meta-value {
+  color: var(--term-text-dim);
+}
+
+body.terminal .hero__divider {
+  border-color: var(--term-border);
+}
+
+body.terminal .social__label {
+  color: var(--term-text-dim);
+}
+
+/* Terminal: Buttons */
+body.terminal .button--primary {
+  background: var(--term-accent);
+  border-color: var(--term-accent);
+  color: var(--term-bg);
+}
+
+body.terminal .button--primary:hover {
+  background: #52ff52;
+  border-color: #52ff52;
+  color: var(--term-bg);
+}
+
+body.terminal .button--outline {
+  border-color: var(--term-border);
+  color: var(--term-text);
+}
+
+body.terminal .button--outline:hover {
+  background: var(--term-bg-alt);
+  border-color: var(--term-accent);
+  color: var(--term-accent);
+}
+
+/* Terminal: Project cards */
+body.terminal .projects__title,
+body.terminal .project-card__title {
+  color: var(--term-text);
+}
+
+body.terminal .projects__divider,
+body.terminal .project-card {
+  border-color: var(--term-border);
+}
+
+body.terminal .project-card {
+  background: var(--term-bg-alt);
+}
+
+body.terminal .project-card:hover {
+  border-color: var(--term-accent);
+}
+
+body.terminal .project-card__period,
+body.terminal .project-card__role,
+body.terminal .project-card__description {
+  color: var(--term-text-dim);
+}
+
+body.terminal .project-card__actions .button--ghost {
+  background: transparent;
+  border-color: var(--term-border);
+  color: var(--term-text);
+}
+
+body.terminal .project-card__actions .button--ghost:hover {
+  border-color: var(--term-accent);
+  color: var(--term-accent);
+}
+
+/* Terminal: Skills */
+body.terminal .skills__title {
+  color: var(--term-text);
+}
+
+body.terminal .skills__tile {
+  background: var(--term-bg-alt);
+  border: 1px solid var(--term-border);
+}
+
+body.terminal .skills__tile:hover,
+body.terminal .skills__tile-inner:hover {
+  border-color: var(--term-accent);
+}
+
+body.terminal .skills__tile-front,
+body.terminal .skills__tile-back {
+  background-color: var(--term-bg-alt) !important;
+  color: var(--term-text) !important;
+}
+
+body.terminal .skills__tile:hover .skills__tile-back,
+body.terminal .skills__tile.is-flipped .skills__tile-back {
+  background-color: var(--term-bg) !important;
+}
+
+/* Light terminal giữ màu logo gốc để icon không bị chìm */
+body.terminal .skills__tile-back .skills__icon {
+  filter: none;
+}
+
+/* Dark terminal mới cần invert logo để đủ tương phản */
+body.terminal.theme-dark .skills__tile-back .skills__icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Terminal: Contact */
+body.terminal .contact__card {
+  background: var(--term-bg-alt) !important;
+  border: 1px solid var(--term-border) !important;
+  box-shadow: none;
+}
+
+body.terminal .contact__card:hover {
+  border-color: var(--term-border) !important;
+}
+
+body.terminal .contact__title,
+body.terminal .contact__subtitle {
+  color: var(--term-text);
+}
+
+body.terminal .contact__subtitle {
+  color: var(--term-text-dim);
+}
+
+body.terminal .contact__divider {
+  border-color: var(--term-border);
+}
+
+body.terminal .contact-item,
+body.terminal .contact-item--box {
+  background: var(--term-bg) !important;
+  border: 1px solid var(--term-border) !important;
+}
+
+body.terminal .contact-item:hover,
+body.terminal .contact-item--box:hover {
+  background: var(--term-bg-alt) !important;
+  border-color: var(--term-accent) !important;
+}
+
+body.terminal .contact-item__icon {
+  background: var(--term-bg-alt) !important;
+  border-color: var(--term-border) !important;
+  color: var(--term-text-dim) !important;
+}
+
+body.terminal a.contact-item:hover .contact-item__icon,
+body.terminal .contact-item--plain:hover .contact-item__icon,
+body.terminal .contact-item--card:hover .contact-item__icon {
+  background: var(--term-border) !important;
+  border-color: var(--term-accent) !important;
+  color: var(--term-accent) !important;
+}
+
+body.terminal .contact-item__icon--logo {
+  background: var(--term-bg-alt) !important;
+  border-color: var(--term-border) !important;
+}
+
+body.terminal .contact-item__icon--logo .contact-item__logo-text {
+  color: var(--term-text-dim) !important;
+}
+
+/* Business Card: hover icon đồng bộ với Email/Location/Phone */
+body.terminal .contact-item--card:hover .contact-item__icon--logo {
+  background: var(--term-border) !important;
+  border-color: var(--term-accent) !important;
+  color: var(--term-accent) !important;
+}
+
+body.terminal .contact-item--card:hover .contact-item__icon--logo .contact-item__logo-text {
+  color: var(--term-accent) !important;
+}
+
+/* Giữ đồng bộ cả khi đang theme-dark (override block body.theme-dark phía dưới) */
+body.terminal.theme-dark .contact-item--card:hover .contact-item__icon--logo {
+  background: var(--term-border) !important;
+  border-color: var(--term-accent) !important;
+  color: var(--term-accent) !important;
+}
+
+body.terminal.theme-dark .contact-item--card:hover .contact-item__icon--logo .contact-item__logo-text {
+  color: var(--term-accent) !important;
+}
+
+body.terminal .contact-item__label-text {
+  color: var(--term-text-dim);
+}
+
+body.terminal .contact-item__text {
+  color: var(--term-text);
+}
+
+body.terminal .contact-item--plain {
+  color: var(--term-text-dim);
+}
+
+/* Terminal: Projects intro */
+body.terminal .projects__intro p {
+  color: var(--term-text-dim);
+}
+
+/* Terminal: Footer */
+body.terminal .site-footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--term-bg-alt);
+  border-top: 1px solid var(--term-border);
+  color: var(--term-text-dim);
+}
+
+body.terminal .site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--term-accent), transparent);
+  animation: terminal-footer-scan 4.8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes terminal-footer-scan {
+  from { transform: translateX(0); }
+  to { transform: translateX(260%); }
+}
+
+body.terminal .site-footer__links-item a {
+  position: relative;
+  color: var(--term-text-dim);
+  transition: color 0.2s ease;
+}
+
+body.terminal .site-footer__links-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background-color: var(--term-accent);
+  transition: width 0.22s ease;
+}
+
+body.terminal .site-footer__links-item a:hover::after {
+  width: 100%;
+}
+
+body.terminal .site-footer__links-item a,
+body.terminal .site-footer__social-link {
+  color: var(--term-text-dim);
+}
+
+body.terminal .site-footer__links-item a:hover,
+body.terminal .site-footer__social-link:hover {
+  color: var(--term-accent);
+}
+
+body.terminal .site-footer__copy {
+  color: var(--term-text-dim);
+}
+
+body.terminal .site-footer__social-link {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--term-border);
+  border-radius: 10px;
+  background: transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+body.terminal .site-footer__social-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--term-accent);
+  background: color-mix(in srgb, var(--term-accent) 12%, transparent);
+}
+
+/* Terminal: Tags */
+body.terminal .tag {
+  background: var(--term-bg-alt);
+  border: 1px solid var(--term-border);
+  color: var(--term-text);
+}
+
+body.terminal .tag:hover {
+  border-color: var(--term-accent);
+  color: var(--term-accent);
+}
+
+/* Terminal: Page main – chrome sticky, main phải nằm dưới header */
+body.terminal .page__main {
+  padding-top: 24px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Terminal: Layout width – tối ưu cho 1320px */
+body.terminal .site-header__inner {
+  max-width: 1280px;
+  padding: 0 32px;
+}
+
+/* Terminal: Padding 32px hai bên */
+body.terminal .hero,
+body.terminal .projects,
+body.terminal .contact {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+body.terminal .skills {
+  padding: 80px 32px;
+}
+
+body.terminal .hero {
+  max-width: 1280px;
+}
+
+body.terminal .hero__layout {
+  align-items: center;
+}
+
+body.terminal .hero__content,
+body.terminal .hero__summary {
+  max-width: 620px;
+}
+
+body.terminal .hero__image-wrapper {
+  max-width: 420px;
+}
+
+body.terminal .projects {
+  max-width: 1280px;
+}
+
+body.terminal .about {
+  max-width: 1280px;
+}
+
+body.terminal .services {
+  max-width: 1280px;
+}
+
+body.terminal .skills__inner {
+  max-width: 1280px;
+}
+
+body.terminal .contact {
+  max-width: 1280px;
+}
+
+body.terminal .site-footer__inner {
+  max-width: 1280px;
+}
+
+/* Cho Projects/Contact không bị sát header sticky khi scroll tới section */
+body.terminal .projects,
+body.terminal .contact {
+  scroll-margin-top: 132px;
+}
+
 /* Dark mode: trắng→đen, đen→trắng – override chung */
-body.theme-dark .section-label { color: #999999; }
+body.theme-dark .section-label {
+  color: #999999;
+}
+
 body.theme-dark .hero__title,
 body.theme-dark .hero__role,
 body.theme-dark .project-card__title,
@@ -46,34 +665,73 @@ body.theme-dark .service-card__title,
 body.theme-dark .about__title,
 body.theme-dark .projects__title,
 body.theme-dark .services__title,
-body.theme-dark .skills__title { color: #ffffff; }
-body.theme-dark .services__divider { border-color: #ffffff; }
-body.theme-dark .site-header__link { color: #ffffff; }
-body.theme-dark .site-header__link::after { background-color: #ffffff; }
-body.theme-dark .site-header__icon { color: #999999; }
-body.theme-dark .scroll-progress::before { background-color: #ffffff; }
-body.theme-dark .hero__badge { background-color: #333333; color: #ffffff; }
+body.theme-dark .skills__title {
+  color: #ffffff;
+}
+
+body.theme-dark .services__divider {
+  border-color: #ffffff;
+}
+
+body.theme-dark .site-header__link {
+  color: #ffffff;
+}
+
+body.theme-dark .site-header__link::after {
+  background-color: #ffffff;
+}
+
+body.theme-dark .site-header__icon {
+  color: #999999;
+}
+
+body.theme-dark .scroll-progress::before {
+  background-color: #ffffff;
+}
+
+body.theme-dark .hero__badge {
+  background-color: #333333;
+  color: #ffffff;
+}
+
 body.theme-dark .hero__meta-label,
-body.theme-dark .hero__meta-value { color: #ffffff; }
+body.theme-dark .hero__meta-value {
+  color: #ffffff;
+}
+
 body.theme-dark .about-card {
   background-color: #000000;
   border-color: #333333;
 }
+
 body.theme-dark .about-card__title,
-body.theme-dark .about-card__text { color: #ffffff; }
+body.theme-dark .about-card__text {
+  color: #ffffff;
+}
+
 body.theme-dark .about-card:hover {
   background-color: #111111;
   border-color: #555555;
 }
+
 body.theme-dark .site-footer {
   background-color: #000000;
   color: #ffffff;
 }
+
 body.theme-dark .site-footer__links-item a,
-body.theme-dark .site-footer__social-link { color: #ffffff; }
+body.theme-dark .site-footer__social-link {
+  color: #ffffff;
+}
+
 body.theme-dark .site-footer__links-item a:hover,
-body.theme-dark .site-footer__social-link:hover { color: #e0e0e0; }
-body.theme-dark .site-footer__copy { color: #999999; }
+body.theme-dark .site-footer__social-link:hover {
+  color: #e0e0e0;
+}
+
+body.theme-dark .site-footer__copy {
+  color: #999999;
+}
 
 a {
   color: inherit;
@@ -419,7 +1077,7 @@ body.theme-dark .theme-toggle {
 /* Hero (BEM: hero) */
 
 .hero {
-  margin: 96px auto 96px;
+  margin: 48px auto 96px;
   max-width: 1120px;
   padding: 0 32px;
   position: relative;
@@ -1046,6 +1704,11 @@ body.hero-loaded .social {
   text-align: center;
 }
 
+.skills__section-label {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
 .skills__title-wrap {
   perspective: 1200px;
   margin-bottom: 36px;
@@ -1573,16 +2236,16 @@ body.theme-dark .contact-item__hint-hover {
 
 /* Visit card modal – tinh tế, user-friendly */
 .visit-card-modal .modal__overlay {
-  background-color: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
-  transition: opacity 0.4s ease;
+  background-color: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(6px);
+  transition: opacity 0.28s ease-out;
 }
 
 .visit-card-modal__wrapper {
   position: relative;
-  perspective: 1400px;
+  perspective: 1100px;
   z-index: 1;
-  padding: 100px 28px 60px;
+  padding: 106px 28px 56px;
   min-height: 420px;
   display: flex;
   flex-direction: column;
@@ -1592,14 +2255,18 @@ body.theme-dark .contact-item__hint-hover {
 
 .visit-card-modal__hint {
   position: absolute;
-  top: 76px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 13px;
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
   letter-spacing: 0.03em;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
+  z-index: 3;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.18);
 }
 
 .visit-card-modal__wrapper:has(.visit-card.is-flat) .visit-card-modal__hint {
@@ -1655,24 +2322,31 @@ body.theme-dark .visit-card-modal__close {
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   cursor: pointer;
-  transform: rotateX(52deg) rotateY(0deg) rotateZ(40deg);
+  transform: rotateX(12deg) rotateY(0deg) rotateZ(8deg);
   transform-origin: center center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease-out;
   text-align: left;
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .visit-card:hover {
-  transform: rotateX(52deg) rotateY(0deg) rotateZ(40deg) translateZ(40px);
-  box-shadow: 24px 24px 48px rgba(0, 0, 0, 0.12);
+  transform: rotateX(12deg) rotateY(0deg) rotateZ(8deg) translateZ(8px);
+  box-shadow: 12px 14px 28px rgba(15, 23, 42, 0.17);
 }
 
 .visit-card:focus,
 .visit-card.is-flat {
   outline: none;
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+}
+
+.visit-card.is-flat:hover {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
 }
 
 .visit-card:focus::before,
@@ -1689,6 +2363,7 @@ body.theme-dark .visit-card-modal__close {
   background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
   border-radius: 4px;
   transition: opacity 0.4s ease;
+  display: none;
 }
 
 .visit-card::before {
@@ -1845,22 +2520,24 @@ body.theme-dark .visit-card::before,
 body.theme-dark .visit-card::after {
   background: #444444;
 }
+
 body.theme-dark .visit-card__logo {
   background: #ffffff;
   color: #000000;
 }
+
 body.theme-dark .visit-card__label {
   color: #999999;
 }
 
 .visit-card-modal[aria-hidden="false"] .visit-card {
-  animation: visit-card-appear 0.6s ease-out forwards;
+  animation: visit-card-appear 0.3s ease-out forwards;
 }
 
 @keyframes visit-card-appear {
   from {
     opacity: 0;
-    transform: rotateX(52deg) rotateZ(40deg) scale(0.94);
+    transform: rotateX(12deg) rotateZ(8deg) scale(0.98);
   }
 
   to {
