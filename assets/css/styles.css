@@ -512,8 +512,13 @@ body.terminal .site-footer::before {
 }
 
 @keyframes terminal-footer-scan {
-  from { transform: translateX(0); }
-  to { transform: translateX(260%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(260%);
+  }
 }
 
 body.terminal .site-footer__links-item a {
@@ -603,7 +608,7 @@ body.terminal .contact {
 }
 
 body.terminal .skills {
-  padding: 80px 32px;
+  padding: 0 32px;
 }
 
 body.terminal .hero {
