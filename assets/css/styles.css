@@ -451,7 +451,7 @@ body.terminal .contact-item__icon--logo .contact-item__logo-text {
   color: var(--term-text-dim) !important;
 }
 
-/* Business Card: hover icon đồng bộ với Email/Location/Phone */
+/* Business Card: hover icon đồng bộ với các mục liên hệ */
 body.terminal .contact-item--card:hover .contact-item__icon--logo {
   background: var(--term-border) !important;
   border-color: var(--term-accent) !important;
