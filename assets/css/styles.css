@@ -601,6 +601,7 @@ body.terminal .site-header__inner {
 
 /* Terminal: Padding 32px hai bên */
 body.terminal .hero,
+body.terminal .experience,
 body.terminal .projects,
 body.terminal .contact {
   padding-left: 32px;
@@ -628,6 +629,7 @@ body.terminal .hero__image-wrapper {
   max-width: 420px;
 }
 
+body.terminal .experience,
 body.terminal .projects {
   max-width: 1280px;
 }
@@ -653,6 +655,7 @@ body.terminal .site-footer__inner {
 }
 
 /* Cho Projects/Contact không bị sát header sticky khi scroll tới section */
+body.terminal .experience,
 body.terminal .projects,
 body.terminal .contact {
   scroll-margin-top: 132px;
@@ -1517,6 +1520,77 @@ body.hero-loaded .social {
   border-radius: 16px;
   border: 1px solid #e0e0e0;
   object-fit: cover;
+}
+
+/* Experience */
+
+.experience {
+  margin: 0 auto 96px;
+  max-width: 1040px;
+  padding: 0 24px;
+}
+
+.experience-card {
+  margin-top: 28px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+  padding: 22px 24px 18px;
+}
+
+.experience-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.experience-card__company {
+  margin: 0 0 4px;
+  font-size: 19px;
+  color: #111111;
+}
+
+.experience-card__role,
+.experience-card__period,
+.experience-card__team {
+  margin: 0;
+  font-size: 14px;
+  color: #555555;
+}
+
+.experience-card__period {
+  white-space: nowrap;
+}
+
+.experience-card__team {
+  margin-top: 12px;
+}
+
+.experience-card__list {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+body.terminal .experience-card {
+  background: var(--term-bg-alt);
+  border-color: var(--term-border);
+}
+
+body.terminal .experience-card__company {
+  color: var(--term-text);
+}
+
+body.terminal .experience-card__role,
+body.terminal .experience-card__period,
+body.terminal .experience-card__team,
+body.terminal .experience-card__list {
+  color: var(--term-text-dim);
 }
 
 /* Projects (BEM: projects, project-card) */
@@ -2647,6 +2721,7 @@ body.theme-dark .visit-card__label {
 
   .hero,
   .about,
+  .experience,
   .projects,
   .services,
   .contact {
@@ -2681,12 +2756,21 @@ body.theme-dark .visit-card__label {
 
   .hero,
   .about,
+  .experience,
   .projects,
   .skills,
   .services,
   .contact {
     margin: 80px 16px 80px;
     padding: 0;
+  }
+
+  .experience-card__top {
+    flex-direction: column;
+  }
+
+  .experience-card__period {
+    white-space: normal;
   }
 
   .hero__layout {
