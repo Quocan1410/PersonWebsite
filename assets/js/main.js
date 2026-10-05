@@ -92,9 +92,9 @@ const terminalTitleEl = document.querySelector(".terminal-title");
 
 const terminalPaths = {
   home: "~",
+  skills: "~/skills",
   experience: "~/experience",
   projects: "~/projects",
-  skills: "~/skills",
   contact: "~/contact",
 };
 
