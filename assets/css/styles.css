@@ -1534,20 +1534,25 @@ body.hero-loaded .social {
   margin-top: 28px;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
-  border-left: 3px solid #16a34a;
   border-radius: 18px;
   padding: 22px 24px 20px;
+  transition: border-color 0.2s ease;
 }
 
-.experience-card__top {
+.experience-card:hover {
+  border-color: #16a34a;
+}
+
+.experience-card__top,
+.experience-card__sub {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
   gap: 16px;
 }
 
 .experience-card__company {
-  margin: 0 0 4px;
+  margin: 0;
   font-size: 22px;
   color: #111111;
 }
@@ -1559,9 +1564,17 @@ body.hero-loaded .social {
   color: #555555;
 }
 
+.experience-card__sub {
+  margin-top: 4px;
+}
+
 .experience-card__role {
   color: #16a34a;
   font-weight: 600;
+}
+
+.experience-card__team {
+  text-align: right;
 }
 
 .experience-card__meta {
@@ -1580,41 +1593,6 @@ body.hero-loaded .social {
   font-size: 12px;
   color: #555555;
   white-space: nowrap;
-}
-
-.experience-card__team {
-  margin-top: 12px;
-}
-
-.experience-card__stats {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin: 18px 0 0;
-  padding: 0;
-}
-
-.experience-card__stat {
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 12px 14px;
-}
-
-.experience-card__stat-value {
-  display: block;
-  margin-bottom: 4px;
-  color: #16a34a;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.experience-card__stat-label {
-  display: block;
-  color: #555555;
-  font-size: 12px;
-  line-height: 1.4;
 }
 
 .experience-card__list {
@@ -1650,7 +1628,10 @@ body.hero-loaded .social {
 body.terminal .experience-card {
   background: var(--term-bg-alt);
   border-color: var(--term-border);
-  border-left-color: var(--term-accent);
+}
+
+body.terminal .experience-card:hover {
+  border-color: var(--term-accent);
 }
 
 body.terminal .experience-card__company {
@@ -1659,20 +1640,17 @@ body.terminal .experience-card__company {
 
 body.terminal .experience-card__role,
 body.terminal .experience-card__list li::before,
-body.terminal .experience-card__stat-value,
 body.terminal .experience-card__highlight {
   color: var(--term-accent);
 }
 
 body.terminal .experience-card__team,
 body.terminal .experience-card__chip,
-body.terminal .experience-card__stat-label,
 body.terminal .experience-card__list {
   color: var(--term-text-dim);
 }
 
-body.terminal .experience-card__chip,
-body.terminal .experience-card__stat {
+body.terminal .experience-card__chip {
   border-color: var(--term-border);
 }
 
@@ -2849,13 +2827,14 @@ body.theme-dark .visit-card__label {
   }
 
   .experience-card__top,
+  .experience-card__sub,
   .experience-card__meta {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .experience-card__stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .experience-card__team {
+    text-align: left;
   }
 
   .experience-card__chip {
