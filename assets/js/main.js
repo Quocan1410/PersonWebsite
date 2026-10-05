@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
   const titleEl = document.getElementById("hero-title");
   if (titleEl) {
     const fullText =
-      titleEl.dataset.text || titleEl.textContent.trim() || "Hi, I'm Andrew";
+      titleEl.dataset.text || titleEl.textContent.trim() || "Hi, I'm Quoc An";
     const minWidthCh = fullText.length + 1;
     titleEl.style.minWidth = `${minWidthCh}ch`;
 
@@ -100,7 +100,7 @@ const terminalPaths = {
 const updateTerminalTitle = (id) => {
   if (!terminalTitleEl) return;
   const path = terminalPaths[id] || "~";
-  terminalTitleEl.textContent = `andrew@portfolio ${path}`;
+  terminalTitleEl.textContent = `quocan@portfolio ${path}`;
 };
 
 const sectionObserver = new IntersectionObserver(
