@@ -1534,8 +1534,9 @@ body.hero-loaded .social {
   margin-top: 28px;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
+  border-left: 3px solid #16a34a;
   border-radius: 18px;
-  padding: 22px 24px 18px;
+  padding: 22px 24px 20px;
 }
 
 .experience-card__top {
@@ -1547,19 +1548,37 @@ body.hero-loaded .social {
 
 .experience-card__company {
   margin: 0 0 4px;
-  font-size: 19px;
+  font-size: 22px;
   color: #111111;
 }
 
 .experience-card__role,
-.experience-card__period,
 .experience-card__team {
   margin: 0;
   font-size: 14px;
   color: #555555;
 }
 
-.experience-card__period {
+.experience-card__role {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.experience-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.experience-card__chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #555555;
   white-space: nowrap;
 }
 
@@ -1567,19 +1586,71 @@ body.hero-loaded .social {
   margin-top: 12px;
 }
 
-.experience-card__list {
-  margin: 14px 0 0;
-  padding-left: 18px;
+.experience-card__stats {
+  list-style: none;
   display: grid;
-  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.experience-card__stat {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.experience-card__stat-value {
+  display: block;
+  margin-bottom: 4px;
+  color: #16a34a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.experience-card__stat-label {
+  display: block;
+  color: #555555;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.experience-card__list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #333333;
+}
+
+.experience-card__list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.experience-card__list li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.experience-card__highlight {
+  background: transparent;
+  color: #16a34a;
+  font-weight: 600;
 }
 
 body.terminal .experience-card {
   background: var(--term-bg-alt);
   border-color: var(--term-border);
+  border-left-color: var(--term-accent);
 }
 
 body.terminal .experience-card__company {
@@ -1587,10 +1658,22 @@ body.terminal .experience-card__company {
 }
 
 body.terminal .experience-card__role,
-body.terminal .experience-card__period,
+body.terminal .experience-card__list li::before,
+body.terminal .experience-card__stat-value,
+body.terminal .experience-card__highlight {
+  color: var(--term-accent);
+}
+
 body.terminal .experience-card__team,
+body.terminal .experience-card__chip,
+body.terminal .experience-card__stat-label,
 body.terminal .experience-card__list {
   color: var(--term-text-dim);
+}
+
+body.terminal .experience-card__chip,
+body.terminal .experience-card__stat {
+  border-color: var(--term-border);
 }
 
 /* Projects (BEM: projects, project-card) */
@@ -2765,11 +2848,17 @@ body.theme-dark .visit-card__label {
     padding: 0;
   }
 
-  .experience-card__top {
+  .experience-card__top,
+  .experience-card__meta {
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  .experience-card__period {
+  .experience-card__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-card__chip {
     white-space: normal;
   }
 
