@@ -213,7 +213,7 @@ const modalRole = modal?.querySelector(".modal__role");
 const modalDescription = modal?.querySelector(".modal__description");
 const modalHighlights = modal?.querySelector(".modal__highlights-list");
 const modalTags = modal?.querySelector(".modal__tags");
-const modalLink = modal?.querySelector(".modal__link");
+const modalActions = modal?.querySelector(".modal__actions");
 
 // Project data
 const projectData = {
@@ -222,16 +222,34 @@ const projectData = {
     period: "March 2025 — June 2025",
     role: "Full-Stack Lead",
     description:
-      "Education platform for candidate applications, review, ranking, and selection, with role-based dashboards and real-time notifications.",
+      "Education platform for candidate applications, lecturer review, and a separate admin app for users, courses, and hiring reports. The user app is deployed.",
     highlights: [
       "Led frontend development, owning features from business requirements through UI and API integration with TypeScript, React, GraphQL, and SQL",
       "Designed candidate application, review, ranking, and selection workflows by translating business rules into application logic and validation",
       "Built role-based dashboards for candidates, lecturers, and administrators with consistent application state across user flows",
       "Implemented real-time notifications with WebSocket, integrating frontend state with backend events",
       "Maintained code quality through code reviews, debugging, and automated testing with Jest and React Testing Library",
+      "Built a separate admin app for users, courses, announcements, and hiring reports on the same database. The user app is live; the admin app is not deployed yet",
     ],
-    tags: ["TypeScript", "React", "GraphQL", "WebSocket"],
-    github: "https://github.com/Quocan1410/TeachTeamApp",
+    tags: ["TypeScript", "React", "GraphQL", "SQL"],
+    links: [
+      {
+        href: "https://teach-team-app.vercel.app",
+        label: "Live app",
+        icon: "fa-solid fa-arrow-up-right-from-square",
+        primary: true,
+      },
+      {
+        href: "https://github.com/Quocan1410/TeachTeamApp",
+        label: "User GitHub",
+        icon: "fab fa-github",
+      },
+      {
+        href: "https://github.com/Quocan1410/TeachTeamApp__Admin",
+        label: "Admin GitHub",
+        icon: "fab fa-github",
+      },
+    ],
   },
   neonsquare: {
     title: "NeonSquare",
@@ -246,7 +264,14 @@ const projectData = {
       "Developed responsive components including profiles, conversation lists, chat interfaces, and image uploads",
     ],
     tags: ["TypeScript", "React", "REST", "WebSocket"],
-    github: "https://github.com/Quocan1410/NeonSquare",
+    links: [
+      {
+        href: "https://github.com/Quocan1410/NeonSquare",
+        label: "View on GitHub",
+        icon: "fab fa-github",
+        primary: true,
+      },
+    ],
   },
   bookstore: {
     title: "BookStore System",
@@ -262,7 +287,14 @@ const projectData = {
       "Utilized TableView for cart display, FileChooser for profile images, and AlertUtil for user feedback",
     ],
     tags: ["Java", "JavaFX", "SQL"],
-    github: "https://github.com/Quocan1410/BookStoreSystem",
+    links: [
+      {
+        href: "https://github.com/Quocan1410/BookStoreSystem",
+        label: "View on GitHub",
+        icon: "fab fa-github",
+        primary: true,
+      },
+    ],
   },
   "grocery-mart": {
     title: "Grocery Mart",
@@ -278,7 +310,14 @@ const projectData = {
       "Structured modular templates for header, footer, and reusable UI blocks with dynamic content loading",
     ],
     tags: ["HTML", "CSS", "SCSS"],
-    github: "https://github.com/Quocan1410/f8-project-08",
+    links: [
+      {
+        href: "https://github.com/Quocan1410/f8-project-08",
+        label: "View on GitHub",
+        icon: "fab fa-github",
+        primary: true,
+      },
+    ],
   },
 };
 
@@ -313,9 +352,19 @@ function openModal(projectId) {
     });
   }
 
-  // Set GitHub link
-  if (modalLink) {
-    modalLink.href = data.github;
+  if (modalActions) {
+    modalActions.innerHTML = "";
+    (data.links || []).forEach((link) => {
+      const anchor = document.createElement("a");
+      anchor.className = link.primary
+        ? "button button--primary modal__link"
+        : "button button--ghost modal__link";
+      anchor.href = link.href;
+      anchor.target = "_blank";
+      anchor.rel = "noreferrer";
+      anchor.innerHTML = `<i class="${link.icon}"></i><span>${link.label}</span>`;
+      modalActions.appendChild(anchor);
+    });
   }
 
   // Show modal

@@ -1780,6 +1780,8 @@ body.terminal .experience-card__chip {
 .project-card__actions {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .project-card__star {
