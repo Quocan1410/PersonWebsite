@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Quoc An's Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quocan1410/PersonWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quocan1410/PersonWebsite/issues"
+  },
+  "homepage": "https://github.com/Quocan1410/PersonWebsite#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
